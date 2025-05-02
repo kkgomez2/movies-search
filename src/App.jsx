@@ -86,7 +86,7 @@ const App = () => {
       <div className="wrapper">
         <header>
           <img src="./hero.png" />
-          <h1>
+          <h1 style={{textWrap: "balance"}}>
             Find the Latest <span className="text-gradient">Movies</span> and See What's Hot.
           </h1>
 
