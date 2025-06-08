@@ -1,0 +1,40 @@
+.hero-movies {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-container {
+  position: relative;
+  height: 476px;
+  width: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  position: absolute;
+  height: auto;
+  width: 230px;
+  border-radius: var(--radius-lg);
+}
+
+.hero-image-main {
+  z-index: 1;
+  transform: scale(0.9);
+
+  box-shadow: 0px 20px 20px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-image-sub {
+  transform: scale(0.7);
+}
+
+.hero-image-left {
+  left: 0;
+  rotate: -10deg;
+}
+.hero-image-right {
+  right: 0;
+  rotate: 10deg;
+}

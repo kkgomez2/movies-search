@@ -4,6 +4,7 @@ import Spinner from "./components/Spinner";
 import MovieCard from "./components/MovieCard";
 import { useDebounce } from "react-use";
 import { updateSearchCount, getTrendingMovies } from "./appwrite";
+import HeroMovies from "./components/HeroMovies/HeroMovies";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -85,9 +86,10 @@ const App = () => {
       <div className="pattern" />
       <div className="wrapper">
         <header>
-          <img src="./hero.png" />
-          <h1 style={{textWrap: "balance"}}>
-            Find the Latest <span className="text-gradient">Movies</span> and See What's Hot.
+          {!isLoading && <HeroMovies movieList={movieList} />}
+          <h1 style={{ textWrap: "balance" }}>
+            Find the Latest <span className="text-gradient">Movies</span> and
+            See What's Hot.
           </h1>
 
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
