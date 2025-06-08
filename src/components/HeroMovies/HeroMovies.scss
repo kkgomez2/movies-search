@@ -1,0 +1,18 @@
+.hero-movies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-image-container {
+  position: relative;
+  height: 476px;
+}
+
+.hero-image {
+  position: absolute;
+  height: auto;
+  width: 200px;
+  border-radius: var(--radius-lg);
+}
