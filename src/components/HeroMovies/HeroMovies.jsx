@@ -1,7 +1,9 @@
 import "./HeroMovies.scss";
 
 const HeroMovies = ({ movieList }) => {
-  const moviesToDisplay = movieList.slice(0, 3);
+  if (!movieList || movieList?.length < 3) {
+    return <img src="./hero.png" />;
+  }
 
   const firstMovie = movieList[0];
   const secondMovie = movieList[1];
@@ -13,6 +15,8 @@ const HeroMovies = ({ movieList }) => {
         <div className="hero-image-container">
           <img
             className="hero-image hero-image-main"
+            title={firstMovie?.title}
+            alt={firstMovie?.title}
             src={
               firstMovie?.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${firstMovie.poster_path}`
@@ -21,6 +25,8 @@ const HeroMovies = ({ movieList }) => {
           />
           <img
             className="hero-image hero-image-sub hero-image-left"
+            title={secondMovie?.title}
+            alt={secondMovie?.title}
             src={
               secondMovie?.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${secondMovie.poster_path}`
@@ -29,25 +35,14 @@ const HeroMovies = ({ movieList }) => {
           />
           <img
             className="hero-image hero-image-sub hero-image-right"
+            title={thirdMovie?.title}
+            alt={thirdMovie?.title}
             src={
               thirdMovie?.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${thirdMovie.poster_path}`
                 : "/no-movie.png"
             }
           />
-          {/* {moviesToDisplay.map((movie, index) => (
-            <>
-              <img
-                className="hero-image"
-                style={{ zIndex: 3 - index, left: 100 * index }}
-                src={
-                  movie.poster_path
-                    ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                    : "/no-movie.png"
-                }
-              />
-            </>
-          ))} */}
         </div>
       </div>
     </div>

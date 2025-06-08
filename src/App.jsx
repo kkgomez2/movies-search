@@ -86,7 +86,6 @@ const App = () => {
       <div className="pattern" />
       <div className="wrapper">
         <header>
-          {/* <img src="./hero.png" /> */}
           {!isLoading && <HeroMovies movieList={movieList} />}
           <h1 style={{ textWrap: "balance" }}>
             Find the Latest <span className="text-gradient">Movies</span> and
