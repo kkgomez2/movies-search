@@ -86,7 +86,7 @@ const App = () => {
       <div className="pattern" />
       <div className="wrapper">
         <header>
-          {!isLoading && <HeroMovies movieList={movieList} />}
+          {isLoading ? <Spinner /> : <HeroMovies movieList={movieList} />}
           <h1 style={{ textWrap: "balance" }}>
             Find the Latest <span className="text-gradient">Movies</span> and
             See What's Hot.
