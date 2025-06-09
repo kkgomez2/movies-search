@@ -22,6 +22,7 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [movieList, setMovieList] = useState([]);
+  const [topThree, setTopThree] = useState([]);
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
@@ -48,6 +49,9 @@ const App = () => {
       }
 
       setMovieList(data.results || []);
+      if (!query) {
+        setTopThree(data.results.slice(0, 3) || []);
+      }
 
       if (query && data.results.length > 0) {
         await updateSearchCount(query, data.results[0]);
@@ -86,7 +90,20 @@ const App = () => {
       <div className="pattern" />
       <div className="wrapper">
         <header>
-          {isLoading ? <Spinner /> : <HeroMovies movieList={movieList} />}
+          {!topThree.length ? (
+            <div
+              style={{
+                height: "476px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Spinner />
+            </div>
+          ) : (
+            <HeroMovies movieList={topThree} />
+          )}
           <h1 style={{ textWrap: "balance" }}>
             Find the Latest <span className="text-gradient">Movies</span> and
             See What's Hot.
